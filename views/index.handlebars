@@ -1,0 +1,29 @@
+<h1 class="center">{{title}}</h1>
+<form action="/api/members" method="POST" class="col s6 center">
+    <div class="row">
+        <div class="input-field col s6 offset-s6 pull-s3">
+            <label for="name">Full Name</label>
+            <input name="name" type="text" class="validate">
+        </div>
+        <div class="input-field col s6 offset-s6 pull-s3">
+            <label for="email">Email</label>
+            <input name="email" type="email" class="validate">
+        </div>
+        <button type="submit" class="waves-effect waves-teal btn-flat">Add member</button>
+    </div>
+</form>
+<div class="row">
+
+    <div style="padding: 20px 0px;">
+        <div class="divider teal col s6 offset-s6 pull-s3"></div>
+    </div>
+    <h3 class="center">Members list</h3>
+    <ul class="collection with-header col s6 offset-s6 pull-s3">
+        {{#each members}}
+        <li class="collection-item m3">{{this.name}}: {{this.email}}</li>
+        {{/each}}
+    </ul>
+    <div class="center">
+        <a href="/api/members" class="waves-effect waves-teal btn-flat">View JSON</a>
+    </div>
+</div>
